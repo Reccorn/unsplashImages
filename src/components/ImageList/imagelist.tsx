@@ -27,10 +27,10 @@ export default function ImageList(props: listProps) {
                 const res = await fetch(`https://api.unsplash.com/search/photos?client_id=Ip0XA55zY7b7-d19osq1L5btGg-YCeDZVpnnJjXqHxs&query=${query}&page=${currentPage}`)
                 if (res.ok) {
                     const data = await res.json()
-                    if (data.results.length > 0) {
+                    if (data.results.length > 0 && data.results !== images) {
                         setImages(prevState => prevState.concat(...data.results))
                         setCurrentPage(prevState => prevState + 1)
-                    } else {
+                    } else if (data.results.length === 0) {
                         observer.disconnect()
                     }
                 } else {

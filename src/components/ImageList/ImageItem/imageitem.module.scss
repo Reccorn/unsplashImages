@@ -3,9 +3,8 @@
 .image__item {
     display: flex;
     flex-basis: calc(100% / 6 - 8px);
-    height: auto;
+    height: 204px;
     margin: 4px;
-    max-height: 204px;
     border-radius: 4px;
     border: 1px solid #ebebeb;
     cursor: pointer;
@@ -18,11 +17,11 @@
 
     @media (max-width: $tablet) {
         flex-basis: calc(100% / 4 - 8px);
-        max-height: 190px;
+        height: 190px;
     }
 
     @media (max-width: $mobile) {
         flex-basis: calc(100% / 3 - 8px);
-        max-height: 114px;
+        height: 114px;
     }
 }

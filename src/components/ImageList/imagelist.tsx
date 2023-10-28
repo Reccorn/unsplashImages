@@ -36,7 +36,7 @@ export default function ImageList(props: listProps) {
                 } else {
                     throw (res.status)
                 }
-            } catch(err) {
+            } catch (err) {
                 console.log(err)
                 setLoadingError(true)
             } finally {
@@ -56,11 +56,12 @@ export default function ImageList(props: listProps) {
             observer.observe(bottomOfList.current)
         }
 
-        if (query !== lastValue) {
-            setLoadingError(false)
-            setLastValue(query)
-            setCurrentPage(1)
-            setImages([])
+        if (query !== lastValue && !loading) {
+            setLoadingError(false);
+            setLastValue(query);
+            setCurrentPage(1);
+            setImages([]);
+            loadData();
         }
 
         return () => {
@@ -95,7 +96,7 @@ export default function ImageList(props: listProps) {
                 </div>
             }
             <div ref={bottomOfList}></div>
-            {images.length === 0  && !loading && !loadingError &&
+            {images.length === 0 && !loading && !loadingError &&
                 <p>К сожалению, поиск не дал результатов</p>
             }
             {loadingError &&

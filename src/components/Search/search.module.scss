@@ -1,0 +1,89 @@
+@import '../../styles/vars.global.scss';
+
+.form__wrapper {
+    position: fixed;
+    top:0;
+    left: 0;
+    right: 0;
+    bottom: 50vh;
+    z-index: 10;
+    display: flex;
+    justify-content: center;
+    padding: 40px 80px 16px 80px;
+    background-color: transparent;
+    transition: all .4s ease-in-out;
+    align-items: end;
+
+    @media (max-width: $tablet) {
+        padding: 40px 40px 16px 40px;
+    }
+
+    @media (max-width: $mobile) {
+        padding: 10px 16px 16px;
+    }
+
+    &.wrapper__top {
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: unset;
+        background-color: #fff;
+        justify-content: flex-start;
+    }
+
+    .form__item {
+        position: relative;
+        min-width: 420px;
+        margin-right: 8px;
+
+        @media (max-width: $mobile) {
+            min-width: unset;
+            width: 100%;
+        }
+
+        &::before {
+            content: '';
+            position: absolute;
+            left: 10px;
+            top: 50%;
+            width: 18px;
+            height: 18px;
+            background: url('../../assets/search.svg') no-repeat;
+            background-position: center center;
+            background-size: 100% 100%;
+            transform: translateY(-50%);
+            pointer-events: none;
+        }
+
+        .clear {
+            position: absolute;
+            z-index: 5;
+            right: 8px;
+            top: 50%;
+            width: 19px;
+            height: 19px;
+            background: url('../../assets/clear.svg') no-repeat;
+            background-size: 100% 100%;
+            cursor: pointer;
+            transform: translateY(-50%);
+        }
+    }
+
+    input {
+        width: 100%;
+        padding: 14px 8px 14px 34px;
+        font-weight: 400;
+        font-size: 16px;
+        color: #000000;
+        border-radius: 12px;
+        background-color: #EEE;
+
+        &:hover {
+            background-color: #E6E6E6;
+        }
+
+        &::placeholder {
+            color: #9C9C9C;
+        }
+    }
+}

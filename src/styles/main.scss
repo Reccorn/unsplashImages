@@ -1,0 +1,113 @@
+@import './vars.global.scss';
+
+@font-face {
+    font-family: "SF Pro Display";
+    src: url("./fonts/SF-Pro-Display-Regular.otf") format("opentype");
+    font-weight: 400;
+    font-style: normal;
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    text-rendering: optimizeLegibility;
+    -webkit-font-smoothing: antialiased;
+}
+
+html,
+body {
+    -webkit-tap-highlight-color: transparent;
+    -webkit-touch-callout: none;
+}
+
+html {
+    font-family: "SF Pro Display", Arial, Helvetica, sans-serif;
+    font-style: normal;
+    font-weight: 400;
+}
+
+body {
+    min-height: 100vh;
+    overflow-x: hidden;
+}
+
+main {
+    position: relative;
+    min-height: 100vh;
+    height: fit-content;
+    padding: 120px 0;
+
+    @media (max-width: $mobile) {
+        padding: 90px 0;
+    }
+}
+
+.container {
+    padding: 0 80px;
+    margin: 0 auto;
+
+    @media (max-width: $tablet) {
+        padding: 0 40px;
+    }
+
+    @media (max-width: $mobile) {
+        padding: 0 16px;
+    }
+}
+
+a,
+button {
+    font-family: "SF Pro Display", Arial, Helvetica, sans-serif;
+    transition: 0.2s;
+    outline: none;
+    text-decoration: none;
+    background-color: transparent;
+    border: 0;
+    padding: 0;
+    cursor: pointer;
+}
+
+input,
+textarea {
+    font-family: "SF Pro Display", Arial, Helvetica, sans-serif;
+    border: 0;
+    outline: none;
+    background: transparent;
+    resize: none;
+}
+
+ul,
+ol {
+    padding: 0;
+    list-style-type: none;
+}
+
+img,
+svg {
+    width: 100%;
+    pointer-events: none;
+    user-select: none;
+}
+
+button {
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    align-items: center;
+    padding: 14px 16px;
+    font-size: 16px;
+    color: #fff;
+    border-radius: 12px;
+    background: #eb0c0c;
+
+    &:hover, &:active {
+        background-color: #C30000;
+    }
+}
+
+p {
+    font-weight: 400;
+    font-size: 16px;
+    color: #787878;
+}

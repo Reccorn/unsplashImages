@@ -19,6 +19,13 @@ export default function ImageList(props: listProps) {
     const bottomOfList = useRef<HTMLDivElement>(null)
 
     useEffect(() => {
+        if (query !== lastValue && !loading) {
+            setLoadingError(false);
+            setLastValue(query);
+            setCurrentPage(1);
+            setImages([]);
+        }
+
         async function loadData() {
             setLoading(true)
             setLoadingError(false)
@@ -54,14 +61,6 @@ export default function ImageList(props: listProps) {
 
         if (bottomOfList.current) {
             observer.observe(bottomOfList.current)
-        }
-
-        if (query !== lastValue && !loading) {
-            setLoadingError(false);
-            setLastValue(query);
-            setCurrentPage(1);
-            setImages([]);
-            loadData();
         }
 
         return () => {

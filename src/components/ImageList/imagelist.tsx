@@ -26,6 +26,14 @@ export default function ImageList(props: listProps) {
             setImages([]);
         }
 
+        const observer = new IntersectionObserver((entries) => {
+            if (entries[0].isIntersecting && !loading) {
+                loadData()
+            }
+        }, {
+            rootMargin: '0px'
+        })
+
         async function loadData() {
             setLoading(true)
             setLoadingError(false)
@@ -51,15 +59,7 @@ export default function ImageList(props: listProps) {
             }
         }
 
-        const observer = new IntersectionObserver((entries) => {
-            if (entries[0].isIntersecting && !loading) {
-                loadData()
-            }
-        }, {
-            rootMargin: '0px'
-        })
-
-        if (bottomOfList.current) {
+        if (bottomOfList.current && !loadingError) {
             observer.observe(bottomOfList.current)
         }
 
@@ -68,7 +68,7 @@ export default function ImageList(props: listProps) {
                 observer.unobserve(bottomOfList.current)
             }
         }
-    }, [bottomOfList.current, currentPage, query])
+    }, [bottomOfList.current, currentPage, query, loading, loadingError])
 
     return (
         <>

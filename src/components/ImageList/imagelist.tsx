@@ -84,7 +84,7 @@ export default function ImageList(props: listProps) {
                 )}
             </ul>
             {loading &&
-                <div className={styles.loading}>
+                <div className={styles.loading + (currentPage > 1 ? ' ' + styles.loading__bottom : '')}>
                     <RotatingLines
                         strokeColor="#000000"
                         strokeWidth="6"

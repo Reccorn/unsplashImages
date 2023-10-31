@@ -8,7 +8,7 @@ export function fixWindow(type: boolean) {
                 // Ставим нужные стили
                 document.body.setAttribute('data-body-scroll-fix', scrollPosition.toString()); // Cтавим атрибут со значением прокрутки
                 document.body.style.overflow = 'hidden';
-                // document.body.style.position = 'fixed';
+                document.body.style.position = 'fixed';
                 document.body.style.top = '-' + scrollPosition + 'px';
                 document.body.style.left = '0';
                 document.body.style.width = '100%';
